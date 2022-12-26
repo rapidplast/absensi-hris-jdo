@@ -44,7 +44,7 @@ class LaporanAbsensiController extends Controller
                 if(!is_null($request->nipAwal) && !is_null($request->nipAkhir)){
                     $absensi = DB::select(
                         "SELECT afh.pid, p.nama, p.departement, count(afh.sync_date) as total_absen
-                        FROM absensi_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                         WHERE p.pid = afh.pid AND DATE(sync_date) >= '$tanggal' AND DATE(sync_date) <= '$tanggal2' AND afh.pid >= '$request->nipAwal' AND afh.pid <= '$request->nipAkhir'
                         GROUP BY p.pid
                         ORDER BY afh.id DESC"
@@ -52,7 +52,7 @@ class LaporanAbsensiController extends Controller
                 }elseif(!is_null($request->departementAwal) && $request->departementAkhir){
                     $absensi = DB::select(
                         "SELECT afh.pid, p.nama, p.departement, count(afh.sync_date) as total_absen
-                        FROM absensi_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                         WHERE p.pid = afh.pid AND DATE(sync_date) >= '$tanggal' AND DATE(sync_date) <= '$tanggal2' AND p.departement_id = '$request->departementAwal' OR p.departement_id = '$request->departementAkhir'
                         GROUP BY p.pid
                         ORDER BY afh.id DESC"
@@ -60,7 +60,7 @@ class LaporanAbsensiController extends Controller
                 }elseif(!is_null($request->divisiAwal) && !is_null($request->divisiAkhir)){
                     $absensi = DB::select(
                         "SELECT afh.pid, p.nama, p.departement, count(afh.sync_date) as total_absen
-                        FROM absensi_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                         WHERE p.pid = afh.pid AND DATE(sync_date) >= '$tanggal' AND DATE(sync_date) <= '$tanggal2' AND p.divisi_id = '$request->divisiAwal' OR p.divisi_id = '$request->divisiAkhir'
                         GROUP BY p.pid
                         ORDER BY afh.id DESC"
@@ -68,7 +68,7 @@ class LaporanAbsensiController extends Controller
                 }else{
                     $absensi = DB::select(
                         "SELECT afh.pid, p.nama, p.departement, count(afh.sync_date) as total_absen
-                        FROM absensi_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                         WHERE p.pid = afh.pid AND DATE(sync_date) >= '$tanggal' AND DATE(sync_date) <= '$tanggal2'
                         GROUP BY p.pid
                         ORDER BY afh.id DESC"
