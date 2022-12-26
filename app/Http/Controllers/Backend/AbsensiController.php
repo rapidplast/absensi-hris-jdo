@@ -76,7 +76,8 @@ class AbsensiController extends Controller
         $dbName = $year.''.$month.'HISTORY';
         $port = 4370;
 
-        $zk = new ZKLibrary($mesin->tcpip, $port);
+        // $zk = new ZKLibrary($mesin->tcpip, $port);
+        $zk = new ZKLibrary('192.168.120.41', $port);
         $zk->connect();
         $log_kehadiran = $zk->getAttendance();
         return response()->json($log_kehadiran);
@@ -470,7 +471,7 @@ class AbsensiController extends Controller
         return view('admin.absensi.create',compact(['pegawai']));
     }
     function store(Request $request){
-
+        // dd($request);
         $year = Carbon::now()->format('Y');
         $month = Carbon::now()->format('m');
 

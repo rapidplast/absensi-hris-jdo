@@ -34,6 +34,14 @@
               </p>
             </a>
           </li>
+          <li>
+            <a href="{{route('Users')}}" class="nav-link {{request()->is('Admin/Users') || request()->is('Admin/Users/*') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Data Users
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Master Absensi</li>
           <li class="nav-item">
             <a href="{{route('absensi')}}" class="nav-link {{request()->is('Admin/Absensi') || request()->is('Admin/Absensi/*')  ? 'active' : ''}}">

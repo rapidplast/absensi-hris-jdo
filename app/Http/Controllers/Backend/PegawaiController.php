@@ -39,6 +39,7 @@ class PegawaiController extends Controller
     }
 
     function store(Request $request){
+        // dd($request);
         // $this->validate($request, [
         //     'nama'          => 'required',
         //     'jabatan_id'    => 'required',
@@ -209,22 +210,23 @@ class PegawaiController extends Controller
         $mesin  = Mesin::where('is_default', 1)->first();
         $port = 4370;
 
-        $zk = new ZKLibrary($mesin->tcpip, $port);
+        // $zk = new ZKLibrary($mesin->tcpip, $port);
+        $zk = new ZKLibrary('192.168.120.41', $port);
         $zk->connect();
         $pegawai = $zk->getUser();
-        // return response()->json($pegawai);
+        return response()->json($pegawai);
 
         foreach($pegawai as $data){
             $check = Pegawai::where('pid', $data[0])->first();
-            $email = User::where('email', $data[1].'@gmail.com')->first();
+            $email = User::where('email', $data[1].'@jeweldyna.co.id')->first();
             if(empty($check)){
                 $user               = new User();
                 $user->role_id      = 2;
                 $user->name         = $data[1];
                 if($email){
-                    $user->email        = $data[1].''.rand(10,100).'2@gmail.com';
+                    $user->email        = $data[1].''.rand(10,100).'2@jeweldyna.co.id';
                 }else{
-                    $user->email        = $data[1].'@gmail.com';
+                    $user->email        = $data[1].'@jeweldyna.co.id';
                 }
                 $user->password     = bcrypt('pegawai');
                 $user->created_at   = Carbon::now();

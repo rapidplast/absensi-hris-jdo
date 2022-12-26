@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\ReguKerjaController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\WorkFromHomeController;
 use App\Http\Controllers\Backend\DevController; //wsidik 13.09.2022
+use App\Http\Controllers\Backend\UsersController;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Schema;
 
@@ -76,7 +77,19 @@ Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
             Route::get('/synchronous-pegawai', [PegawaiController::class, 'syncPegawai'])->name('syncPegawai');
         });
 
-        
+        // DATA USERS
+        Route::group(['prefix' => 'Users'], function(){
+            Route::get('/', [UsersController::class, 'index'])->name('Users');
+            // Add Data
+            Route::get('/Tambah-Data', [UsersController::class, 'create'])->name('addUsers');
+            Route::post('/Tambah-Data/Create-Data', [UsersController::class, 'store'])->name('createUsers');
+            // Edit Data
+            Route::get('/Edit/{id}', [UsersController::class, 'edit'])->name('editUsers');
+            Route::post('/Update/{id}', [UsersController::class, 'update'])->name('updateUsers');
+            // Delete Data
+            Route::delete('/Delete/{id}', [UsersController::class, 'destroy'])->name('destroyUsers');
+
+        });
         // ========== Absensi Route ========== //
         Route::group(['prefix' => 'Absensi'], function(){
             Route::get('/', [AbsensiController::class, 'index'])->name('absensi');
