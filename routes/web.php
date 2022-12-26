@@ -51,8 +51,14 @@ Route::get('/dev',[DevController::class, 'syncData'])->name('dev');
 
 Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawaii');
+    Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensii');
 
-    // =============== Admin =============== //
+    // Profile 
+    Route::get('/{id}', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/Edit-Data/{id}', [ProfileController::class, 'edit'])->name('profilEditt');
+
+    //Admin  
     Route::group(['roles' => 'Admin', 'prefix' => 'Admin'], function(){
 
         // Route::get('/txt', function(){
@@ -281,6 +287,16 @@ Route::group(['middleware' => ['web', 'auth', 'roles']], function(){
         // ========== Absensi Work From Home Route ========== //
     });
 
+    //USER
+    Route::group(['roles' => 'Pegawai', 'prefix' => 'Pegawai'], function(){
+        Route::group(['prefix' => 'Pegawai'], function(){
+            Route::get('/', [PegawaiController::class, 'index'])->name('pegawai');
+        });
 
-    // ========****************************======= Admin ========****************************======= //
+        Route::group(['prefix' => 'Absensi'], function(){
+            Route::get('/', [AbsensiController::class, 'index'])->name('absensi');
+            Route::post('Cari-Data', [AbsensiController::class, 'index'])->name('searchAbsensi');
+        });
+        
+    });
 });
