@@ -42,8 +42,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="media align-items-center mb-4">
-                                    <img class="mr-3 img-circle" src="{{asset('public/backend/file/images/rapidplast.ico')}}" width="80" height="80" alt="">
-                                    {{-- <img class="mr-3 img-circle" src="{{asset('public/backend/file/images/berdikari.ico')}}" width="80" height="80" alt=""> --}}
+                                    <img class="mr-3 img-circle" src="{{asset('public/backend/file/images/LOGO-JDO2.png')}}" width="80" height="80" alt="">
                                     <div class="media-body">
                                         <h3 class="mb-0">{{Auth()->user()->name}}</h3>
                                         <p class="text-muted mb-0">{{Auth()->user()->role->role}}</p>
