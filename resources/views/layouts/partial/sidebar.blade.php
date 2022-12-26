@@ -2,8 +2,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('dashboard') }}" class="brand-link text-decoration-none">
-      <img src="{{asset('public/backend/file/images/JDO.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Jewel Dyna</span>
+      <img src="{{asset('public/backend/file/images/rapidplast.ico')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      {{-- <img src="{{asset('public/backend/file/images/berdikari.ico')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+      <span class="brand-text font-weight-light">Rapid Plast</span>
+      {{-- <span class="brand-text font-weight-light">PT BMN</span> --}}
     </a>
 
     <!-- Sidebar -->
@@ -25,31 +27,37 @@
           </li>
           <li class="nav-header">Master Pegawai</li>
           <li class="nav-item">
-            <a href="{{route('pegawai')}}" class="nav-link {{request()->is('Admin/Pegawai') || request()->is('Admin/Pegawai/*') ? 'active' : ''}}">
+            {{-- <a href="{{route('pegawai')}}" class="nav-link {{request()->is('Admin/Pegawai') || request()->is('Admin/Pegawai/*') ? 'active' : ''}}"> --}}
+              <a href="{{route('pegawaii')}}" class="nav-link {{request()->is('/pegawai') || request()->is('/pegawai/*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Data Pegawai
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li>
+            @if(auth()->id('id') == '1' )
             <a href="{{route('Users')}}" class="nav-link {{request()->is('Admin/Users') || request()->is('Admin/Users/*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Data Users
               </p>
             </a>
+            @endif
           </li>
+          
           <li class="nav-header">Master Absensi</li>
           <li class="nav-item">
-            <a href="{{route('absensi')}}" class="nav-link {{request()->is('Admin/Absensi') || request()->is('Admin/Absensi/*')  ? 'active' : ''}}">
+            {{-- <a href="{{route('absensi')}}" class="nav-link {{request()->is('Admin/Absensi') || request()->is('Admin/Absensi/*')  ? 'active' : ''}}"> --}}
+              <a href="{{route('absensii')}}" class="nav-link {{request()->is('absensi') || request()->is('absensi/*')  ? 'active' : ''}}">
               <i class="nav-icon fas fa-clock"></i>
               <p>
                 Data Absensi
               </p>
             </a>
+      
           </li>
-
+          @if(auth()->id('id') == 1 )
           <li class="nav-item">
             <a href="{{route('absensilog')}}" class="nav-link {{request()->is('Admin/Absensi-Log') || request()->is('Admin/Absensi-Log/*')  ? 'active' : ''}}">
               <i class="nav-icon fas fa-box"></i>
@@ -57,8 +65,10 @@
                 Data Absensi Log
               </p>
             </a>
+            @endif
           </li>
           <li class="nav-item">
+            @if(auth()->id('id') == 1  )
             <a href="{{route('mesin')}}" class="nav-link {{request()->is('Admin/Mesin') || request()->is('Admin/Mesin/*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-hands"></i>
               <p>
@@ -149,6 +159,7 @@
               </p>
             </a>
           </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
