@@ -36,7 +36,7 @@ class DevController extends Controller
             $date = Carbon::now()->format('Y-m-d');
             $absensi = DB::select(
                 "SELECT afh.pid, p.nama, p.departement, afh.check_in, afh.check_out, afh.telat, afh.izin, afh.check_in1, afh.check_out1, afh.check_in2, afh.check_out2, afh.check_in3, afh.check_out3, afh.sync_date, afh.absen1, afh.absen2
-                FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
+                FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                 WHERE p.pid = afh.pid AND DATE(afh.sync_date) = '$date'
                 ORDER BY afh.id DESC"
             );
@@ -53,7 +53,7 @@ class DevController extends Controller
             // $absensi = Absen::all();
             $absensi = DB::select(
                 "SELECT afh.pid, p.nama, p.departement, afh.check_in, afh.check_out, afh.telat, afh.izin, afh.check_in1, afh.check_out1, afh.check_in2, afh.check_out2, afh.check_in3, afh.check_out3, afh.sync_date, afh.absen1, afh.absen2
-                FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
+                FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
                 WHERE p.pid = afh.pid AND DATE(sync_date) >= '$tanggal' AND DATE(sync_date) <= '$tanggal2'
                 ORDER BY afh.id DESC"
             );
@@ -143,7 +143,7 @@ class DevController extends Controller
 
                     $checkPegawai = DB::select("
                         SELECT db.* 
-                        FROM absensi_frhistory.$dbName db
+                        FROM absensijdo_frhistory.$dbName db
                         WHERE db.pid = '$row->pid' AND DATE(db.sync_date) = '$checkDate'
                     ");
 
@@ -540,7 +540,7 @@ class DevController extends Controller
 
 //                     $checkPegawai = DB::select("
 //                         SELECT db.* 
-//                         FROM absensi_frhistory.$dbName db
+//                         FROM absensijdo_frhistory.$dbName db
 //                         WHERE db.pid = '$row->pid' AND DATE(db.sync_date) = '$checkDate'
 //                     ");
 

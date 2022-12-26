@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Schema;
 
         return count(DB::select(
             "SELECT afh.pid, p.nama, p.departement, afh.check_in, afh.check_out, afh.telat, afh.izin, afh.check_in1, afh.check_out1, afh.check_in2, afh.check_out2, afh.check_in3, afh.check_out3
-            FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
+            FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
             WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month'
             ORDER BY afh.id DESC"
         ));
@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Schema;
         $month = Carbon::now()->format('m');
 
         return count(DB::select(
-            "SELECT * FROM absensi_fingerprint.absen_mentahs"
+            "SELECT * FROM absensijdo_fingerprint.absen_mentahs"
         ));
     }
 

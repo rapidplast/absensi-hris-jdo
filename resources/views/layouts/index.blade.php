@@ -7,8 +7,7 @@
   <title>{{$title ?? 'Absensi Rapid Plast'}}</title>
 
   <!-- Icon Web -->
-  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('public/backend/file/images/RAPIDPLAST.jpg')}}">
-  {{-- <link rel="icon" type="image/png" sizes="16x16" href="{{asset('public/backend/file/images/berdikari.jpg')}}"> --}}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('public/backend/file/images/LOGO-JDO2.png')}}">
    <!-- CSRF_TOKEN -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Google Font: Source Sans Pro -->
@@ -38,8 +37,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{asset('public/backend/file/images/logo3.png')}}" alt="Rapid Plast" height="60" width="60">
-    {{-- <img class="animation__wobble" src="{{asset('public/backend/file/images/berdikari.png')}}" alt="Rapid Plast" height="60" width="60"> --}}
+    <img class="animation__wobble" src="{{asset('public/backend/file/images/JDO-LOGO.png')}}" alt="Jewel Dyna" height="60" width="120">
   </div>
 
 @include('layouts.partial.navbar')
