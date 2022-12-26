@@ -33,7 +33,7 @@ class AbsensiMentahController extends Controller
             $date = Carbon::now()->format('Y-m-d');
             $absensi = DB::select(
                 "SELECT afh.pid, p.nama, p.departement,(DATE(afh.date)) as tanggal, (TIME(afh.date)) as jam 
-                FROM absensijdo_fingerprint.pegawais p, absen_mentahs afh 
+                FROM absensi_fingerprint.pegawais p, absen_mentahs afh 
                 WHERE p.pid = afh.pid AND DATE(afh.date) >= '$tanggal' and DATE(afh.date)<='$tanggalCetak'
                 ORDER BY afh.id ASC"
             );
@@ -49,7 +49,7 @@ class AbsensiMentahController extends Controller
             $tanggalCetak = date('Y-m-d', strtotime($request->tanggal));
             $absensi = DB::select(
             "SELECT afh.pid, p.nama, p.departement,(DATE(afh.date)) as tanggal, (TIME(afh.date)) as jam 
-            FROM absensijdo_fingerprint.pegawais p, absen_mentahs afh 
+            FROM absensi_fingerprint.pegawais p, absen_mentahs afh 
             WHERE p.pid = afh.pid AND DATE(afh.date) >= '$tanggal' and DATE(afh.date)<='$tanggal2'
             ORDER BY afh.id ASC"
         );

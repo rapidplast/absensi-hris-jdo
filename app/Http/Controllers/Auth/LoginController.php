@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -18,6 +19,12 @@ class LoginController extends Controller
                 'password'  => $request->password,
                 'role_id'   => 1
             ])){
+                return redirect()->route('dashboard');
+            }elseif(Auth::attempt(([
+                'email'         => $request->email,
+                'password'      => $request->password,
+                'role_id'       => 2
+            ]))){
                 return redirect()->route('dashboard');
             }else{
                 if(!$request->email && !$request->password){

@@ -48,19 +48,19 @@ class DashboardController extends Controller
 
         $checkIn = count(DB::select(
                     "SELECT afh.check_in
-                    FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                    FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
                     WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month' AND afh.check_in IS NOT NULL
                     ORDER BY afh.id DESC"
                 ));
         $checkOut = count(DB::select(
                     "SELECT afh.check_out
-                    FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                    FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
                     WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month' AND afh.check_in IS NOT NULL AND afh.check_out IS NOT NULL
                     ORDER BY afh.id DESC"
                 ));
         $telat = count(DB::select(
                     "SELECT afh.check_out
-                    FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName afh
+                    FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName afh
                     WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month' AND afh.telat IS NOT NULL
                     ORDER BY afh.id DESC"
                 ));
@@ -68,19 +68,19 @@ class DashboardController extends Controller
         if($dbCheck1 === true){
             $checkIn1 = count(DB::select(
                         "SELECT afh.check_in
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName1 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName1 afh
                         WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month2' AND afh.check_in IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $checkOut1 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName1 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName1 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month2' AND afh.check_in IS NOT NULL AND afh.check_out IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $telat1= count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName1 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName1 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month2' AND afh.telat IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
@@ -93,19 +93,19 @@ class DashboardController extends Controller
         if($dbCheck2 === true){
             $checkIn2 = count(DB::select(
                         "SELECT afh.check_in
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName2 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName2 afh
                         WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month2' AND afh.check_in IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $checkOut2 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName2 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName2 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month2' AND afh.check_in IS NOT NULL AND afh.check_out IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $telat2= count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName2 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName2 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month2' AND afh.telat IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
@@ -118,19 +118,19 @@ class DashboardController extends Controller
         if($dbCheck3 === true){
             $checkIn3 = count(DB::select(
                         "SELECT afh.check_in
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName3 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName3 afh
                         WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month3' AND afh.check_in IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $checkOut3 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName3 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName3 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month3' AND afh.check_in IS NOT NULL AND afh.check_out IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $telat3 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName3 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName3 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month3' AND afh.telat IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
@@ -143,19 +143,19 @@ class DashboardController extends Controller
         if($dbCheck4 === true){
             $checkIn4 = count(DB::select(
                         "SELECT afh.check_in
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName4 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName4 afh
                         WHERE p.pid = afh.pid AND MONTH(afh.sync_date) = '$month4' AND afh.check_in IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $checkOut4 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName4 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName4 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month4' AND afh.check_in IS NOT NULL AND afh.check_out IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));
             $telat4 = count(DB::select(
                         "SELECT afh.check_out
-                        FROM absensijdo_fingerprint.pegawais p, absensijdo_frhistory.$dbName4 afh
+                        FROM absensi_fingerprint.pegawais p, absensi_frhistory.$dbName4 afh
                         WHERE p.pid = afh.pid AND Month(afh.sync_date) = '$month4' AND afh.telat IS NOT NULL
                         ORDER BY afh.id DESC"
                     ));

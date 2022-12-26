@@ -214,7 +214,7 @@ class PegawaiController extends Controller
         $zk = new ZKLibrary('192.168.120.41', $port);
         $zk->connect();
         $pegawai = $zk->getUser();
-        return response()->json($pegawai);
+        // return response()->json($pegawai);
 
         foreach($pegawai as $data){
             $check = Pegawai::where('pid', $data[0])->first();
