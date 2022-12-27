@@ -10,9 +10,11 @@
       <!-- Navbar Search -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-            <div class="image">
-                <img src="{{asset('public/backend/file/images/LOGO-JDO2.png')}}" class="img-circle elevation-2" alt="User Image" width=30>
-            </div>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::User()->name}}</span>
+            <i class="nav-icon fas fa-user fa-lg"></i>
+            <!-- <div class="image"> -->
+            <!-- <img src="{{asset('public/backend/file/images/LOGO-JDO2.png')}}" class="img-profile rounded-circle" alt="User Image" width=30> -->
+            <!-- </div>  -->
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
           <div class="dropdown-divider"></div>
