@@ -34,7 +34,7 @@
             </a>
           </li>
           <li>
-            @if(auth()->id('id') == '1' || auth()->id('id') == '2331' )
+            @if(Auth()->user()->role->id == 1 )
             <a href="{{route('Users')}}" class="nav-link {{request()->is('Admin/Users') || request()->is('Admin/Users/*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -55,7 +55,7 @@
             </a>
       
           </li>
-          @if(auth()->id('id') == '1' || auth()->id('id') == '2331' )
+          @if(Auth()->user()->role->id == 1)
           <li class="nav-item">
             <a href="{{route('absensilog')}}" class="nav-link {{request()->is('Admin/Absensi-Log') || request()->is('Admin/Absensi-Log/*')  ? 'active' : ''}}">
               <i class="nav-icon fas fa-box"></i>
@@ -66,7 +66,7 @@
             @endif
           </li>
           <li class="nav-item">
-            @if(auth()->id('id') == '1' || auth()->id('id') == '2331' )
+            @if(Auth()->user()->role->id == 1)
             <a href="{{route('mesin')}}" class="nav-link {{request()->is('Admin/Mesin') || request()->is('Admin/Mesin/*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-hands"></i>
               <p>
