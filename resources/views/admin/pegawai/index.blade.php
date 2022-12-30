@@ -39,7 +39,7 @@
                         <button type="button"  class="btn btn-sm btn-light float-right ml-2" style="border-radius: 50%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <i class="fas fa-question"></i>
                         </button>
-                        @if(auth()->id('id') == 1)
+                        @if(Auth()->user()->role->id == 1)
                         <button type="button" class="btn btn-sm btn-primary float-right ml-2" id="sync-pegawai">
                             Sync Pegawai
                         </button>
@@ -87,7 +87,7 @@ use App\Models\User;
                             <td>{{$data->sap}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>
-                                @if(auth()->id('id') == 1)
+                                @if(Auth()->user()->role->id == 1)
                                 <a href="{{route('editPegawai', $data->id)}}" class="text-decoration-none">
                                     <button class="btn btn-warning btn-sm">Ubah</button>
                                 </a>

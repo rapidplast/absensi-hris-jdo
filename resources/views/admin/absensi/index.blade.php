@@ -44,7 +44,7 @@
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                @if(auth()->id('id') == 1 )
+                                @if(Auth()->user()->role->id == 1)
                                 <div class="col-md-4">
                                     <span>Dari Tanggal</span>
                                     <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{$tanggalCetak}}" required>
@@ -85,7 +85,7 @@
                 <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Data Absensi</h3>
-                    @if(auth()->id('id') == 1 )
+                    @if(Auth()->user()->role->id == 1)
                     @if(Route::is('searchAbsensi'))
                     <a href="{{route('cetakSearch.TXT', ['tanggal' => $tanggal, 'tanggal2' => $tanggal2, 'dbName' => $dbName])}}">
                         <button type="button" class="btn btn-warning btn-sm float-right mr-2 text-center" >
@@ -164,7 +164,7 @@
                             <td>{{$data->absen2}}</td>
                             <td>{{$data->izin}}</td>
                             <td>
-                                @if(auth()->id('id') == 1 )
+                                @if(Auth()->user()->role->id == 1)
                                 <a href="{{ route('editAbsensi',['id' => $data->id, 'pid' => $data->pid, 'date' => date('Y-m-d', strtotime($data->sync_date))]) }}"  class="btn btn-sm btn-warning">Ubah</a>
                                 <button class="btn btn-sm btn-danger" id="btn-delete" onclick="destroy('{{$data->id}}')">Hapus</button>
                                 @endif
